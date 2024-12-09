@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .container-center {
+    @apply container mx-auto;
+  }
+  .content-col-center {
+    @apply flex justify-center items-center flex-col;
+  }
+  .content-center {
+    @apply flex justify-center items-center;
+  }
+}
+
+%overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000a5;
+  z-index: 1;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  .hero {
+    background: url("./assets/hero-bg.webp");
+    background-size: cover;
+    &::before {
+      @extend %overlay;
+    }
+  }
+  .section-header {
+    span {
+      background: linear-gradient(to right, #ff4081, #00b8d4, #8bc34a);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  }
+  .last-videos {
+    .box {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("./assets/overlapping.svg");
+        z-index: 1;
+        opacity: 0.2;
+      }
+    }
+  }
+  .teacher-box {
+    .teacher-info {
+      transition: 0.5s;
+      transform: scale(0);
+    }
+    &:hover {
+      .teacher-info {
+        transform: scale(1);
+      }
+    }
+  }
+  .classes-page {
+    .classes {
+      .box {
+        background: url("./assets/classes-box-bg.jpg");
+        background-size: cover;
+        position: relative;
+        &::before {
+          @extend %overlay;
+        }
+      }
+    }
+  }
+}
+.dashboard {
+  position: relative;
+  .ball {
+    box-shadow: 1px 1px 100px #ea580c;
+    position: fixed;
+    left: 0;
+    animation: move-circle 22s linear 0s infinite;
+  }
+  .ball-2 {
+    box-shadow: 1px 1px 100px #0c82ea;
+    position: fixed;
+    left: 0;
+    animation: moveBall2 20s linear 0s infinite;
+  }
+  .ball-3 {
+    box-shadow: 1px 1px 100px #ea0c3c;
+    position: fixed;
+    left: 0;
+    animation: moveBall3 20s linear 0s infinite;
+  }
+  .navigation {
+    &.open {
+      right: 0;
+    }
+  }
+  .login-dashboard {
+    transition: 1s;
+    transform: scale(1);
+    opacity: 1;
+    &.close {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+  .add-owner,
+  .editVideo,
+  .editTeacherInfo,
+  .addVideo {
+    transition: 1s;
+    transform: scale(0);
+    opacity: 0;
+    &.open {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes move-circle {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(calc(80vw - 50px), calc(30vh - 50px));
+  }
+  40% {
+    transform: translate(calc(60vw - 50px), calc(80vh - 50px));
+  }
+  60% {
+    transform: translate(0, calc(70vh - 50px));
+  }
+  80% {
+    transform: translate(calc(80vw - 50px), 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes moveBall2 {
+  0% {
+    transform: translate(calc(80vw - 50px), calc(10vh - 50px));
+  }
+  25% {
+    transform: translate(calc(60vw - 50px), calc(40vh - 50px));
+  }
+  50% {
+    transform: translate(calc(30vw - 50px), calc(80vh - 50px));
+  }
+  75% {
+    transform: translate(calc(10vw - 50px), calc(30vh - 50px));
+  }
+  100% {
+    transform: translate(calc(80vw - 50px), calc(10vh - 50px));
+  }
+}
+@keyframes moveBall3 {
+  0% {
+    transform: translate(calc(10vw - 50px), calc(20vh - 50px));
+  }
+  20% {
+    transform: translate(calc(40vw - 50px), calc(10vh - 50px));
+  }
+  40% {
+    transform: translate(calc(90vw - 50px), calc(60vh - 50px));
+  }
+  60% {
+    transform: translate(calc(20vw - 50px), calc(80vh - 50px));
+  }
+  80% {
+    transform: translate(calc(70vw - 50px), calc(30vh - 50px));
+  }
+  100% {
+    transform: translate(calc(10vw - 50px), calc(20vh - 50px));
+  }
+}
