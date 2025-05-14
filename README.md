@@ -31,3 +31,9 @@ write after website url : /dashboard
 ### To login in dashboard : 
 username : admin
 password : 1234
+
+--- 
+
+## To Download Project In Your Device : 
+1. make folder in your device and open terminal ( cmd ) in this folder and run this code : `git clone https://github.com/Hadymohamed22/Chemistry-education-platform.git`
+2. write this code after project download in your device : `npm start`
